@@ -7,14 +7,6 @@
 % ---------------------------------------------------------
 % Toolkit
 % ---------------------------------------------------------
-\begin{toolkitbox}{Limits --- Quick Reference}
-\begin{tabular}{@{}p{0.28\textwidth}p{0.68\textwidth}@{}}
-\textbf{Limit of a function} & $\lim_{x \to a} f(x) = L$: for every $\varepsilon > 0$ there exists $\delta > 0$ such that $0 < |x-a| < \delta \implies |f(x) - L| < \varepsilon$. \\[4pt]
-\textbf{One-sided limits}    & $\lim_{x \to a^+} f(x)$: approach from the right; $\lim_{x \to a^-} f(x)$: approach from the left. \\[4pt]
-\textbf{Limit exists}        & $\lim_{x \to a} f(x) = L$ iff $\lim_{x \to a^+} f(x) = \lim_{x \to a^-} f(x) = L$. \\[4pt]
-\textbf{Key point}           & $f(a)$ need not be defined; the limit concerns behaviour \emph{near} $a$, not \emph{at} $a$. \\
-\end{tabular}
-\end{toolkitbox}
 
 % ---------------------------------------------------------
 \subsection*{The Definition}
@@ -48,9 +40,11 @@ because $\dfrac{x^2-1}{x-1} = x + 1$ for all $x \neq 1$.
 % ---------------------------------------------------------
 \subsection*{Indeterminate Forms and Algebraic Techniques}
 
+\begin{remark*}[Algebraic techniques]
 Direct substitution fails when it produces $\tfrac{0}{0}$ or
 $\tfrac{\infty}{\infty}$. The standard remedies are factoring,
 rationalising, and cancellation.
+\end{remark*}
 
 \begin{tcolorbox}[colback=gray!6, colframe=gray!40, arc=2pt,
   left=6pt, right=6pt, top=4pt, bottom=4pt,
