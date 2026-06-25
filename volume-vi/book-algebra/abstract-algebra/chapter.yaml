@@ -1,0 +1,11 @@
+subject: abstract-algebra
+display_title: ''
+volume: volume-vi
+status: in-progress
+dependencies:
+  prior: ''
+  next: ''
+path: volume-vi/book-algebra/abstract-algebra
+book: book-algebra
+environments: []
+proof_files: []
