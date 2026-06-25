@@ -109,7 +109,7 @@ Completed in this tracker: 0
    >
    > In particular, $k[x_1, \dots, x_n]$ is Noetherian for any field $k$.
 
-18. () `thm:addition-commutative-in-fn` — **Addition Is Commutative in $ ^n$**
+18. () `thm:addition-commutative-in-fn` — **Addition Is Commutative in $\mathbf{F}^n$**
    > **Statement.**
    > For all $x,y \in \mathbf{F}^n$,
    > \[
