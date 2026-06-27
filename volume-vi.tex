@@ -1,5 +1,5 @@
 % =========================================================
-% volume-vi.tex --- Standalone root for Volume VI
+% volume-vi.tex --- Standalone volume root
 % Volume VI: Algebra
 %
 % Build (local): latexmk -lualatex volume-vi.tex
@@ -13,10 +13,10 @@
 \renewcommand{\familydefault}{\rmdefault}
 
 \pagenumbering{roman}
-\input{volume-vi/frontispiece}
-\input{volume-vi/volume-vi-title}
+\input{volume-vi/frontmatter}
+\LRAFrontMatterPage{From Cantor to Ito}{Algebra}{}{Emmy Noether}{1882-1935}{images/noether.png}
+\input{common/dedication}
 
-\clearpage
 \tableofcontents
 \clearpage
 \pagenumbering{arabic}
@@ -28,8 +28,8 @@
 \bibliographystyle{plainnat}
 \bibliography{%
   bibliography/volume-vi-algebra,%
-  bibliography/volume-vi-lattice-and-order-theory,%
-  bibliography/volume-vi-linear-algebra%
+  bibliography/volume-vi-linear-algebra,%
+  bibliography/volume-vi-lattice-and-order-theory
 }
 
 \printindex[tech]
