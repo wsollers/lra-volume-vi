@@ -1,0 +1,50 @@
+\newpage
+\phantomsection
+\label{prf:boolean-ring-commutativity-from-idempotence}
+\LRAProofFor{prop:boolean-ring-commutativity-from-idempotence}
+
+\begin{remark*}[Return]
+\hyperref[prop:boolean-ring-commutativity-from-idempotence]{Return to Theorem}
+\end{remark*}
+
+\begin{proposition*}[Commutativity from Idempotence]
+In any Boolean ring $R$,
+\[
+  pq=qp \quad \text{for all } p,q\in R.
+\]
+Hence every Boolean ring is a commutative ring.
+\end{proposition*}
+
+\begin{proof}[Professional Standard Proof]
+\LRAProofBodyStart
+The proof of Proposition~\ref{prop:boolean-ring-self-additive-inverse}
+established
+\[
+  pq+qp=0 \qquad \text{for all } p,q\in R.
+\]
+Hence $qp=-(pq)$. By Proposition~\ref{prop:boolean-ring-self-negation},
+applied to the element $pq$, we have $-(pq)=pq$. Therefore $qp=pq$.
+\end{proof}
+
+\begin{proof}[Detailed Learning Proof]
+\LRAProofBodyStart
+The characteristic-$2$ proof produced a stronger intermediate identity:
+$pq+qp=0$. This says that $qp$ is the additive inverse of $pq$. But in a
+Boolean ring every element is its own negative, so the additive inverse of
+$pq$ is just $pq$ itself. Therefore $qp=pq$.
+\end{proof}
+
+\begin{remark*}[Proof structure]
+Reuse the intermediate identity from the characteristic-$2$ proof, then
+replace additive inverse by self-negation.
+\end{remark*}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[prop:boolean-ring-self-additive-inverse]{Self Additive Inverse / Characteristic 2}.
+  \item \hyperref[prop:boolean-ring-self-negation]{Self Negation}.
+  \item \hyperref[def:notes-rings-definition-l65]{Commutative Ring}.
+\end{itemize}
+\end{dependencies}
+
+\clearpage

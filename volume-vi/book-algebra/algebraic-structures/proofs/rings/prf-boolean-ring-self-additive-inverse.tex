@@ -1,0 +1,75 @@
+\newpage
+\phantomsection
+\label{prf:boolean-ring-self-additive-inverse}
+\LRAProofFor{prop:boolean-ring-self-additive-inverse}
+
+\begin{remark*}[Return]
+\hyperref[prop:boolean-ring-self-additive-inverse]{Return to Theorem}
+\end{remark*}
+
+\begin{proposition*}[Self Additive Inverse / Characteristic 2]
+In any Boolean ring $R$,
+\[
+  p+p=0 \quad \text{for every } p\in R.
+\]
+\end{proposition*}
+
+\begin{proof}[Professional Standard Proof]
+\LRAProofBodyStart
+Let $p,q\in R$. By B1 the element $p+q$ is idempotent, so
+\[
+  (p+q)(p+q)=p+q. \tag{$*$}
+\]
+Expand the left side by distributivity (R3), applied on both sides:
+\[
+  (p+q)(p+q)=p(p+q)+q(p+q)=pp+pq+qp+qq.
+\]
+Apply B1 to $pp=p$ and $qq=q$, and regroup by additive associativity
+(R1):
+\[
+  p+q=p+pq+qp+q.
+\]
+Cancel $p$ and $q$ using additive cancellation
+(Proposition~\ref{prop:group-cancellation}):
+\[
+  pq+qp=0 \qquad \text{for all } p,q\in R. \tag{$**$}
+\]
+Specialize $(**)$ to $q=p$ and apply B1 once more:
+\[
+  p+p=pp+pp=0.
+\]
+\end{proof}
+
+\begin{proof}[Detailed Learning Proof]
+\LRAProofBodyStart
+The only new fact over a plain ring is that everything squares to itself.
+Apply it to a sum, because squaring a sum is where addition and
+multiplication are forced to interact.
+
+Square $p+q$ two ways: it equals itself by idempotence, and it expands to
+the four products $pp,pq,qp,qq$ by distributivity. There is no $2pq$
+shortcut because multiplication is not assumed commutative.
+
+Idempotence collapses $pp$ to $p$ and $qq$ to $q$, leaving
+$p+pq+qp+q$. Match this against $p+q$ and cancel the shared $p$ and $q$:
+this leaves $pq+qp=0$.
+
+Put $q=p$. Idempotence turns $pp+pp$ into $p+p$, so $p+p=0$.
+Characteristic $2$ was never assumed; it is forced by idempotence.
+\end{proof}
+
+\begin{remark*}[Proof structure]
+Use B1 on $(p+q)^2$, expand by R3, cancel the outer terms by R1, and
+specialize the resulting identity to $q=p$.
+\end{remark*}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[def:boolean-ring]{Boolean Ring} (B1).
+  \item \hyperref[def:notes-rings-definition-l19]{Ring} axioms R1 and R3.
+  \item \hyperref[prop:group-cancellation]{Additive cancellation}.
+  \item Lean reference: \texttt{BooleanAlgebraDefinitions.lean}.
+\end{itemize}
+\end{dependencies}
+
+\clearpage

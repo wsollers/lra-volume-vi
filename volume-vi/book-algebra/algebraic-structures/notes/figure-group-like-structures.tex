@@ -117,6 +117,11 @@
     $\exists$\ $1$\ (multiplicative identity)\\
     $\forall$\ $a(b+c) = ab+ac$}};
 
+  \node (boolring) [below=1.1cm of ring] {\algnode{cRing}{Boolean Ring}{$(A,+,\cdot,0,1)$}{%
+    $\forall$\ $a\cdot a=a$\\
+    $\operatorname{RingWithUnity}$\\
+    $\land\ \operatorname{IdempotentOperation}(\cdot,A)$}};
+
   \node (field) [below right=1.0cm and 1.6cm of abelian] {\algnode{cField}{Field}{$(A,+,\cdot,0,1,a^{-1})$}{%
     $\exists$\ $a^{-1}$\ $\forall\,a\neq 0$\ (mult.\ inv.)\\
     $\forall$\ $a\cdot b = b\cdot a$\ (mult.\ comm.)\\
@@ -163,6 +168,10 @@
   \draw[isa] (ring.north east) to[out=35, in=145] (field.north west)
     node[lbl,    pos=0.5, above=3pt] {IS-A}
     node[rellbl, pos=0.5, below=1pt] {$+$mult.\ inverse};
+
+  \draw[isa] (ring.south) -- (boolring.north)
+    node[lbl,    midway, right=3pt] {IS-A}
+    node[rellbl, midway, left=3pt]  {$+$idempotence};
 
   \draw[hasa] (abelian.south) to[out=270, in=135] (vs.north west)
     node[lbl,    pos=0.5, right=3pt] {HAS-A}

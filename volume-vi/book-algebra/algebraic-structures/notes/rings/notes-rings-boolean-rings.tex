@@ -1,0 +1,177 @@
+% =========================================================
+% Boolean Rings
+% =========================================================
+\paragraph{Boolean Rings}
+
+\begin{definitionbox}{Definition --- Boolean Ring}
+\begin{definition}[Boolean Ring]
+\label{def:boolean-ring}
+A \textbf{Boolean ring} is a ring with unity $(R,+,\cdot,1)$ such that
+every element is idempotent under multiplication:
+\[
+  \tag{B1}
+  p\cdot p = p \quad \text{for every } p\in R.
+\]
+\end{definition}
+\end{definitionbox}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{BooleanRing}(R,+,\cdot,1)
+\Longleftrightarrow
+\operatorname{RingWithUnity}(R,+,\cdot,1)
+\land
+\forall p\in R,\; p\cdot p=p.
+\]
+\end{remark*}
+
+\begin{remark*}[Definition predicate reading]
+$(R,+,\cdot,1)$ is a Boolean ring exactly when it is a ring with a
+multiplicative identity whose multiplication is idempotent.
+\end{remark*}
+
+\begin{remark*}[Negated quantified statement]
+\[
+\neg\operatorname{BooleanRing}(R,+,\cdot,1)
+\Longleftrightarrow
+\neg\operatorname{RingWithUnity}(R,+,\cdot,1)
+\;\lor\;
+\exists p\in R,\; p\cdot p\neq p.
+\]
+\end{remark*}
+
+\begin{remark*}[Rewire note]
+This definition reuses
+\hyperref[def:idempotent-operation]{Idempotent Operation}:
+\[
+  \operatorname{BooleanRing}(R,+,\cdot,1)
+  \Longleftrightarrow
+  \operatorname{RingWithUnity}(R,+,\cdot,1)
+  \land
+  \operatorname{IdempotentOperation}(\cdot,R).
+\]
+There is no separate idempotent-element predicate here; the Boolean
+condition is idempotence of multiplication as an operation.
+\end{remark*}
+
+\begin{remark*}[Characteristic 2 is derived, not assumed]
+Some presentations list $p+p=0$ as an axiom of Boolean rings. In this
+volume it is a theorem, Proposition~\ref{prop:boolean-ring-self-additive-inverse}.
+Thus
+\[
+  \operatorname{BooleanRing}(R,+,\cdot,1)
+  \Longrightarrow
+  \operatorname{Characteristic2}(R,+).
+\]
+\end{remark*}
+
+\begin{proposition}[Self Additive Inverse / Characteristic 2]
+\label{prop:boolean-ring-self-additive-inverse}
+In any Boolean ring $R$,
+\[
+  p+p=0 \quad \text{for every } p\in R.
+\]
+\hyperref[prf:boolean-ring-self-additive-inverse]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}
+\FlashQ{What is the additive characteristic of a Boolean ring?}
+\FlashA{Every element satisfies $p+p=0$; Boolean rings have characteristic $2$ unless they are trivial.}
+\FlashHint{Apply idempotence to $(p+q)^2$ and cancel the shared $p$ and $q$ terms.}
+\end{remark*}
+
+\begin{proposition}[Self Negation]
+\label{prop:boolean-ring-self-negation}
+In any Boolean ring $R$,
+\[
+  -p=p \quad \text{for every } p\in R.
+\]
+\hyperref[prf:boolean-ring-self-negation]{Go to proof.}
+\end{proposition}
+
+\begin{proposition}[Commutativity from Idempotence]
+\label{prop:boolean-ring-commutativity-from-idempotence}
+In any Boolean ring $R$,
+\[
+  pq=qp \quad \text{for all } p,q\in R.
+\]
+Hence every Boolean ring is a commutative ring
+(Definition~\ref{def:notes-rings-definition-l65}).
+\hyperref[prf:boolean-ring-commutativity-from-idempotence]{Go to proof.}
+\end{proposition}
+
+\begin{remark}[Structural Link to Integral Domains]
+\label{rem:boolean-rings-and-integral-domains}
+Every Boolean ring with more than two elements has zero divisors, hence
+is not an integral domain (Definition~\ref{def:notes-rings-integral-domains-l25}).
+Indeed, idempotence gives
+\[
+  p(1-p)=p-p^2=p-p=0.
+\]
+If $p\neq 0$ and $p\neq 1$, then $p$ and $1-p$ are nonzero zero divisors.
+The only Boolean ring that is an integral domain is the two-element ring
+$\mathbf{2}\cong\mathbb{F}_2$.
+\end{remark}
+
+\begin{example}[Standard Boolean Rings]
+\label{ex:boolean-ring-standard-examples}
+\begin{enumerate}[label=(\roman*)]
+  \item The two-element ring
+        \[
+          \mathbf{2}=\{0,1\}
+        \]
+        with addition and multiplication modulo $2$ is a Boolean ring.
+        Its operation tables are
+        \[
+        \begin{array}{c|cc}
+        + & 0 & 1\\ \hline
+        0 & 0 & 1\\
+        1 & 1 & 0
+        \end{array}
+        \qquad
+        \begin{array}{c|cc}
+        \cdot & 0 & 1\\ \hline
+        0 & 0 & 0\\
+        1 & 0 & 1
+        \end{array}
+        \]
+        and both elements satisfy $p^2=p$.
+
+  \item For any $n\geq 1$, the product ring $\mathbf{2}^n$ with
+        coordinatewise addition and multiplication is a Boolean ring.
+        The four-element case $\mathbf{2}^2$ has elements
+        $(0,0),(1,0),(0,1),(1,1)$, and idempotence holds coordinatewise:
+        \[
+          (a,b)^2=(a^2,b^2)=(a,b).
+        \]
+
+  \item For any set $X$, the power set
+        \[
+          \bigl(\mathcal P(X),\triangle,\cap,X\bigr)
+        \]
+        is a Boolean ring. Addition is symmetric difference, multiplication
+        is intersection, the zero element is $\varnothing$, and the unity is
+        $X$. This example is isomorphic to the function ring $\mathbf{2}^{X}$.
+\end{enumerate}
+\end{example}
+
+\begin{theorem}[Stone Representation for Boolean Rings, stated]
+\label{thm:stone-representation-boolean-rings}
+Every Boolean ring is isomorphic to a field of sets. Every finite Boolean
+ring is isomorphic to $\mathcal P(X)$ for some finite set $X$, hence has
+$2^{|X|}$ elements.
+\hyperref[prf:stone-representation-boolean-rings]{Go to proof.}
+\end{theorem}
+
+\begin{corollary}[Order is a Power of Two]
+\label{cor:boolean-ring-finite-order-power-two}
+A finite Boolean ring has order $2^n$ for some $n\geq 0$. In particular,
+there is no Boolean ring of order $3$.
+\hyperref[prf:boolean-ring-finite-order-power-two]{Go to proof.}
+\end{corollary}
+
+\begin{remark*}[Placement note]
+The representation theorem is recorded here so the Boolean-ring facts stay
+contiguous. A later abstract-algebra chapter may move the proof once ideals,
+prime ideals, and ultrafilters are available.
+\end{remark*}
