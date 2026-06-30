@@ -1,0 +1,378 @@
+% =========================================================
+% Chapter 1 Locked Refactor: Part B
+% =========================================================
+
+\subsection{Laws of Composition}
+\label{sec:laws-of-composition}
+
+\begin{definitionbox}{Definition (Binary Operation / Law of Composition)}
+\begin{definition}[Binary Operation / Law of Composition]
+\label{def:binop}
+Let $A$ be a set. A \textbf{binary operation} on $A$ (Bourbaki: an internal
+law of composition) is a function
+\[
+  \star:A\times A\to A.
+\]
+The image of $(a,b)$ is written $a\star b$.
+\end{definition}
+\end{definitionbox}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{BinOp}(\star,A)\Longleftrightarrow
+\forall a,b\in A,\ a\star b\in A.
+\]
+\end{remark*}
+
+\begin{remark*}[Interpretation]
+The codomain $A$ is closure: combining two elements never leaves $A$.
+\end{remark*}
+
+\begin{remark*}[Bourbaki anchor]
+``Law of composition,'' \textit{Algebra I}, Section 1, Definition 1.
+``Binary operation'' is the model-theoretic alias used in this volume.
+\end{remark*}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[def:alg-function]{Function (Volume I recall)}
+  \item \hyperref[def:carrier-set]{Carrier Set}
+\end{itemize}
+\end{dependencies}
+
+\begin{definitionbox}{Definition ($n$-ary Operation)}
+\begin{definition}[$n$-ary Operation]
+\label{def:nary-operation}
+An \textbf{$n$-ary operation} on $A$ is a function $f:A^n\to A$, with
+$n\geq 0$. It is unary if $n=1$, binary if $n=2$, and nullary if $n=0$.
+\end{definition}
+\end{definitionbox}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Op}_n(f,A)\Longleftrightarrow f:A^n\to A.
+\]
+\end{remark*}
+
+\begin{definitionbox}{Definition (Unary Operation)}
+\begin{definition}[Unary Operation]
+\label{def:unary}
+A \textbf{unary operation} on $A$ is a function $f:A\to A$.
+\end{definition}
+\end{definitionbox}
+
+\begin{definitionbox}{Definition (Nullary Operation / Constant)}
+\begin{definition}[Nullary Operation / Constant]
+\label{def:nullary}
+A \textbf{nullary operation} on $A$ is the selection of a distinguished
+element $c\in A$; equivalently, it is an operation $A^0\to A$.
+\end{definition}
+\end{definitionbox}
+
+\begin{remark*}[Forward reference: external laws]
+An external law or action $\Omega\times A\to A$, whose elements of $\Omega$
+are operators, is introduced with actions when modules and vector spaces are
+reached.
+\end{remark*}
+
+\subsection{Distinguished Elements}
+\label{sec:distinguished-elements}
+
+\begin{remark*}[Geometric picture]
+Some elements have a privileged role under a law: one that does nothing and
+one that swallows everything. Defining the one-sided versions first lets the
+two-sided collapse become a theorem rather than an assumption.
+\end{remark*}
+
+\begin{definition}[Left Identity]
+\label{def:left-identity}
+An element $e_L\in A$ is a \textbf{left identity} for $\star$ if
+$e_L\star a=a$ for all $a\in A$.
+\end{definition}
+
+\begin{definition}[Right Identity]
+\label{def:right-identity}
+An element $e_R\in A$ is a \textbf{right identity} for $\star$ if
+$a\star e_R=a$ for all $a\in A$.
+\end{definition}
+
+\begin{definition}[Identity / Neutral Element]
+\label{def:identity}
+An element $e\in A$ is a \textbf{two-sided identity} (or neutral element)
+for $\star$ if it is both a left and a right identity:
+\[
+  e\star a=a\star e=a\quad\text{for all }a\in A.
+\]
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Identity}(e,\star,A)\Longleftrightarrow
+e\in A\ \text{and}\ \forall a\in A,\ e\star a=a\star e=a.
+\]
+\end{remark*}
+
+\begin{proposition}[Identity Collapse and Uniqueness]
+\label{prop:identity-collapse}
+If $\star$ has a left identity $e_L$ and a right identity $e_R$, then
+$e_L=e_R$. Consequently a two-sided identity, if it exists, is unique.
+\hyperref[prf:identity-collapse]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Proof structure]
+Evaluate $e_L\star e_R$ two ways.
+\end{remark*}
+
+\begin{definition}[Left Absorbing Element]
+\label{def:left-absorbing}
+An element $z_L\in A$ is \textbf{left absorbing} for $\star$ if
+$z_L\star a=z_L$ for all $a\in A$.
+\end{definition}
+
+\begin{definition}[Right Absorbing Element]
+\label{def:right-absorbing}
+An element $z_R\in A$ is \textbf{right absorbing} for $\star$ if
+$a\star z_R=z_R$ for all $a\in A$.
+\end{definition}
+
+\begin{definition}[Absorbing Element]
+\label{def:absorbing}
+An element $z\in A$ is \textbf{absorbing} (a zero element) for $\star$ if it
+is both left absorbing and right absorbing.
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Absorbing}(z,\star,A)\Longleftrightarrow
+z\in A\ \text{and}\ \forall a\in A,\ z\star a=a\star z=z.
+\]
+\end{remark*}
+
+\begin{proposition}[Uniqueness of the Absorbing Element]
+\label{prop:absorbing-unique}
+A two-sided absorbing element, if it exists, is unique.
+\hyperref[prf:absorbing-unique]{Go to proof.}
+\end{proposition}
+
+\subsection{Inverses}
+\label{sec:inverses}
+
+\begin{remark*}[Geometric picture]
+An inverse undoes an element, returning the identity. Undoing from the left
+and undoing from the right can a priori differ; associativity forces them to
+agree.
+\end{remark*}
+
+\begin{definition}[Left Inverse]
+\label{def:algebraic-left-inverse}
+Let $\star$ have identity $e$, and let $a\in A$. An element $b\in A$ is a
+\textbf{left inverse} of $a$ if $b\star a=e$.
+\end{definition}
+
+\begin{definition}[Right Inverse]
+\label{def:algebraic-right-inverse}
+Let $\star$ have identity $e$, and let $a\in A$. An element $c\in A$ is a
+\textbf{right inverse} of $a$ if $a\star c=e$.
+\end{definition}
+
+\begin{definition}[Inverse]
+\label{def:inverse}
+Let $\star$ have identity $e$, and let $a\in A$. An element $a^{-1}\in A$ is
+an \textbf{inverse} of $a$ if
+\[
+  a\star a^{-1}=a^{-1}\star a=e.
+\]
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Inverse}(b,a,\star,e)\Longleftrightarrow
+a\star b=b\star a=e.
+\]
+\end{remark*}
+
+\begin{definition}[Invertible Element]
+\label{def:invertible}
+An element $a$ is \textbf{invertible} (a unit) if it has a two-sided
+inverse.
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Invertible}(a)\Longleftrightarrow
+\exists b,\ a\star b=b\star a=e.
+\]
+\end{remark*}
+
+\begin{proposition}[Inverse Collapse and Uniqueness in a Monoid]
+\label{prop:inverse-collapse}
+If $\star$ is associative with identity $e$, and $a$ has a left inverse $b$
+and a right inverse $c$, then $b=c$. Hence the inverse of an invertible
+element is unique.
+\hyperref[prf:inverse-collapse]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Proof structure]
+Compute $b\star a\star c$ two ways; associativity is essential.
+\end{remark*}
+
+\begin{definition}[Additive Inverse]
+\label{def:additive-inverse}
+When $\star=+$ with identity $0$, the inverse of $a$ is written $-a$ and is
+called the \textbf{additive inverse} or negative.
+\end{definition}
+
+\begin{definition}[Multiplicative Inverse]
+\label{def:multiplicative-inverse}
+When $\star=\cdot$ with identity $1$, the inverse of $a$ is written
+$a^{-1}$ and is called the \textbf{multiplicative inverse}.
+\end{definition}
+
+\begin{proposition}[Units of a Monoid Form a Group]
+\label{prop:units-form-group}
+In a monoid $(A,\star,e)$, the set $A^\times$ of invertible elements is
+closed under $\star$ and forms a group.
+\hyperref[prf:units-form-group]{Go to proof.}
+\end{proposition}
+
+\subsection{Properties of Laws}
+\label{sec:properties-of-laws}
+
+\begin{definition}[Associativity]
+\label{def:assoc}
+A binary operation $\star$ on $A$ is \textbf{associative} if
+\[
+  (a\star b)\star c=a\star(b\star c)
+  \quad\text{for all }a,b,c\in A.
+\]
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{Assoc}(\star,A)\Longleftrightarrow
+\forall a,b,c\in A,\ (a\star b)\star c=a\star(b\star c).
+\]
+\end{remark*}
+
+\begin{theorem}[General Associativity]
+\label{thm:general-associativity}
+If $\star$ is associative, then any finite product
+$a_1\star a_2\star\cdots\star a_n$ has a value independent of
+parenthesization.
+\hyperref[prf:general-associativity]{Go to proof.}
+\end{theorem}
+
+\begin{remark*}[Proof structure]
+Induct on $n$, reducing every bracketing to the right-nested one.
+\end{remark*}
+
+\begin{definition}[Powers / Iterated Operation]
+\label{def:powers}
+For associative $\star$ with identity $e$, define $a^0:=e$ and
+$a^{n+1}:=a^n\star a$. In additive notation, define $0a:=0$ and
+$(n+1)a:=na+a$.
+\end{definition}
+
+\begin{definition}[Commutativity]
+\label{def:comm}
+A binary operation $\star$ on $A$ is \textbf{commutative} if
+$a\star b=b\star a$ for all $a,b\in A$.
+\end{definition}
+
+\begin{definition}[Left Distributivity]
+\label{def:left-distrib}
+For laws $+$ and $\cdot$ on $A$, multiplication is \textbf{left
+distributive} over addition if
+\[
+  a\cdot(b+c)=a\cdot b+a\cdot c
+\]
+for all $a,b,c\in A$.
+\end{definition}
+
+\begin{definition}[Right Distributivity]
+\label{def:right-distrib}
+For laws $+$ and $\cdot$ on $A$, multiplication is \textbf{right
+distributive} over addition if
+\[
+  (a+b)\cdot c=a\cdot c+b\cdot c
+\]
+for all $a,b,c\in A$.
+\end{definition}
+
+\begin{definition}[Distributivity]
+\label{def:distrib}
+For laws $+$ and $\cdot$ on $A$, multiplication is \textbf{distributive}
+over addition if it is both left distributive and right distributive.
+\end{definition}
+
+\begin{remark*}[Interpretation]
+Distributivity is the bridge between the two laws of a ring.
+\end{remark*}
+
+\begin{definition}[Idempotent Operation]
+\label{def:idempotent}
+A binary operation $\star$ on $A$ is \textbf{idempotent} if
+$a\star a=a$ for all $a\in A$.
+\end{definition}
+
+\subsection{Regularity Properties}
+\label{sec:regularity-properties}
+
+\begin{remark*}[Geometric picture]
+A cancellable element is one you can divide out of an equation even when no
+inverse exists. Where cancellation fails, the witnesses are zero divisors:
+the obstruction the ring tower is built to remove.
+\end{remark*}
+
+\begin{definition}[Left Cancellable Element]
+\label{def:left-cancellable}
+An element $a\in A$ is \textbf{left cancellable} if
+\[
+a\star x=a\star y\Longrightarrow x=y
+\]
+for all $x,y\in A$.
+\end{definition}
+
+\begin{definition}[Right Cancellable Element]
+\label{def:right-cancellable}
+An element $a\in A$ is \textbf{right cancellable} if
+\[
+x\star a=y\star a\Longrightarrow x=y
+\]
+for all $x,y\in A$.
+\end{definition}
+
+\begin{definition}[Cancellable Element]
+\label{def:cancellable}
+An element $a\in A$ is \textbf{cancellable} (regular) if it is both left
+cancellable and right cancellable.
+\end{definition}
+
+\begin{proposition}[Invertible Implies Cancellable]
+\label{prop:invertible-implies-cancellable}
+In a monoid, every invertible element is cancellable.
+\hyperref[prf:invertible-implies-cancellable]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Proof structure]
+Left-multiply $a\star x=a\star y$ by $a^{-1}$ and use associativity.
+\end{remark*}
+
+\begin{definition}[Zero Divisor]
+\label{def:zero-divisor}
+In a ring $R$, a nonzero element $a$ is a \textbf{zero divisor} if there is
+a nonzero $b$ with $a\cdot b=0$ or $b\cdot a=0$.
+\end{definition}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{ZeroDivisor}(a,R)\Longleftrightarrow
+a\neq 0\ \text{and}\ \exists b\neq 0,\ a\cdot b=0\ \text{or}\ b\cdot a=0.
+\]
+\end{remark*}
+
+\begin{remark*}[Carried fact]
+In any ring, $0$ is absorbing for multiplication. This is
+Proposition~\ref{prop:ring-mult-zero}, derived from distributivity rather
+than assumed as an axiom.
+\end{remark*}

@@ -1,0 +1,92 @@
+% =========================================================
+% Chapter 1 Locked Refactor: Part A
+% =========================================================
+
+\subsection{Algebraic Structures}
+\label{sec:algebraic-structures}
+
+\begin{remark*}[Geometric picture]
+Before any specific algebra, fix what kind of thing we are studying: a set
+of elements together with stipulated ways to combine them, compare them, and
+name some of them. The axioms say which stipulations we keep. A group, a
+ring, and a field are the same general idea with different stipulations.
+\end{remark*}
+
+\begin{definitionbox}{Definition (Algebraic Structure)}
+\begin{definition}[Algebraic Structure]
+\label{def:algebraic-structure}
+An \textbf{algebraic structure} of signature $\mathcal L$ is a pair
+\[
+  \mathcal A=(A,I)
+\]
+where $A$ is a nonempty carrier set and $I$ interprets each symbol of
+$\mathcal L$ on $A$: each $n$-ary function symbol as an operation
+$A^n\to A$, each $n$-ary relation symbol as a subset of $A^n$, and each
+constant symbol as an element of $A$. The structure is algebraic when
+$\mathcal L$ has no relation symbols beyond equality.
+\end{definition}
+\end{definitionbox}
+
+\begin{remark*}[Standard quantified statement]
+\[
+\operatorname{AlgStructure}_{\mathcal L}(\mathcal A)
+\Longleftrightarrow
+\mathcal A=(A,I),\ A\neq\varnothing,\ \text{and } I
+\text{ interprets every symbol of }\mathcal L\text{ on }A.
+\]
+\end{remark*}
+
+\begin{remark*}[Interpretation]
+The signature is the type; the structure is the instance. ``Group'' is a
+signature with a binary operation, an identity constant, and an inverse
+operation; a particular group interprets these on a carrier.
+\end{remark*}
+
+\begin{remark*}[Bourbaki anchor]
+Species of structure, \textit{Theory of Sets}, Chapter IV, Section 1.
+\end{remark*}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[def:carrier-set]{Carrier Set}
+  \item \hyperref[def:signature]{First-Order Signature}
+\end{itemize}
+\end{dependencies}
+
+\begin{definitionbox}{Definition (First-Order Signature)}
+\begin{definition}[First-Order Signature]
+\label{def:signature}
+A \textbf{first-order signature}
+\[
+  \mathcal L=(\operatorname{Const}_{\mathcal L},
+  \operatorname{Func}_{\mathcal L},
+  \operatorname{Rel}_{\mathcal L},\operatorname{arity})
+\]
+lists constant symbols, function symbols, and relation symbols, with each
+function or relation symbol carrying a declared arity.
+\end{definition}
+\end{definitionbox}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[def:nullary]{Nullary Operation}
+  \item \hyperref[def:unary]{Unary Operation}
+  \item \hyperref[def:binop]{Binary Operation}
+\end{itemize}
+\end{dependencies}
+
+\begin{definitionbox}{Definition ($\mathcal L$-Structure)}
+\begin{definition}[$\mathcal L$-Structure]
+\label{def:l-structure}
+Given a signature $\mathcal L$, an \textbf{$\mathcal L$-structure} is a
+nonempty carrier set $A$ together with an interpretation of every symbol of
+$\mathcal L$ on $A$.
+\end{definition}
+\end{definitionbox}
+
+\begin{dependencies}
+\begin{itemize}
+  \item \hyperref[def:signature]{First-Order Signature}
+  \item \hyperref[def:carrier-set]{Carrier Set}
+\end{itemize}
+\end{dependencies}

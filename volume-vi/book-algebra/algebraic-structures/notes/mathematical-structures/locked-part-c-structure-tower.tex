@@ -1,0 +1,200 @@
+% =========================================================
+% Chapter 1 Locked Refactor: Part C
+% =========================================================
+
+\subsection{One Internal Law}
+\label{sec:one-internal-law}
+
+\begin{remark*}[Structure tower rule]
+Each structure below is the previous structure plus one axiom. Closure is
+absorbed into the phrase ``binary operation.''
+\end{remark*}
+
+\begin{definition}[Magma]
+\label{def:magma}
+A \textbf{magma} is a pair $(A,\star)$ where $A\neq\varnothing$ and
+$\star$ is a binary operation on $A$.
+\end{definition}
+
+\begin{definition}[Semigroup]
+\label{def:semigroup}
+A \textbf{semigroup} is a magma whose operation is associative.
+\end{definition}
+
+\begin{definition}[Monoid]
+\label{def:monoid}
+A \textbf{monoid} is a semigroup with an identity element.
+\end{definition}
+
+\begin{definition}[Group]
+\label{def:group}
+A \textbf{group} is a monoid in which every element has an inverse.
+\end{definition}
+
+\begin{definition}[Abelian Group]
+\label{def:abelian-group}
+An \textbf{abelian group} is a group whose operation is commutative.
+\end{definition}
+
+\begin{definition}[Order of a Group]
+\label{def:group-order}
+The \textbf{order} of a group $G$, denoted $|G|$, is the cardinality of its
+carrier. The group is finite if $|G|$ is finite.
+\end{definition}
+
+\begin{proposition}[Uniqueness of the Identity in a Group]
+\label{prop:group-identity-unique}
+The identity of a group is unique.
+\hyperref[prf:group-identity-unique]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Dependency]
+This specializes Proposition~\ref{prop:identity-collapse}.
+\end{remark*}
+
+\begin{proposition}[Uniqueness of Inverses in a Group]
+\label{prop:group-inverse-unique}
+Each element of a group has a unique inverse.
+\hyperref[prf:group-inverse-unique]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Dependency]
+This specializes Proposition~\ref{prop:inverse-collapse}.
+\end{remark*}
+
+\begin{proposition}[Cancellation Laws in a Group]
+\label{prop:group-cancellation}
+In a group, $ab=ac$ implies $b=c$, and $ba=ca$ implies $b=c$.
+\hyperref[prf:group-cancellation]{Go to proof.}
+\end{proposition}
+
+\begin{proposition}[Socks--Shoes]
+\label{prop:socks-shoes}
+In a group, $(ab)^{-1}=b^{-1}a^{-1}$.
+\hyperref[prf:socks-shoes]{Go to proof.}
+\end{proposition}
+
+\subsection{Two Internal Laws}
+\label{sec:two-internal-laws}
+
+\begin{remark*}[Convention]
+Throughout this volume, \textbf{ring} means unital ring. A non-unital object
+with ring-like addition, multiplication, associativity, and distributivity is
+called a \textbf{rng}.
+\end{remark*}
+
+\begin{definition}[Rng]
+\label{def:rng}
+A \textbf{rng} is a triple $(R,+,\cdot)$ where $(R,+)$ is an abelian group,
+$\cdot$ is associative, and $\cdot$ distributes over $+$. No
+multiplicative identity is required.
+\end{definition}
+
+\begin{definition}[Ring]
+\label{def:ring}
+A \textbf{ring} is a rng with a multiplicative identity $1$; equivalently,
+$(R,\cdot,1)$ is a monoid. Thus the axioms are: additive abelian group,
+multiplicative associativity, distributivity, and unity.
+\end{definition}
+
+\begin{definition}[Commutative Ring]
+\label{def:commutative-ring}
+A \textbf{commutative ring} is a ring whose multiplication is commutative.
+\end{definition}
+
+\begin{definition}[Integral Domain]
+\label{def:integral-domain}
+An \textbf{integral domain} is a commutative ring with $0\neq 1$ and no
+zero divisors.
+\end{definition}
+
+\begin{definition}[Division Ring / Skew Field]
+\label{def:division-ring}
+A \textbf{division ring} (or skew field) is a ring with $0\neq 1$ in which
+every nonzero element is invertible under multiplication. Multiplication is
+not required to be commutative.
+\end{definition}
+
+\begin{definition}[Field]
+\label{def:field}
+A \textbf{field} is a commutative division ring; equivalently, it is a
+commutative ring with $0\neq 1$ in which $(F\setminus\{0\},\cdot)$ is a
+group.
+\end{definition}
+
+\begin{proposition}[Multiplication by Zero]
+\label{prop:ring-mult-zero}
+In a ring, $a\cdot 0=0\cdot a=0$ for all $a$.
+\hyperref[prf:ring-mult-zero]{Go to proof.}
+\end{proposition}
+
+\begin{remark*}[Proof structure]
+Distribute $a(0+0)$ and cancel additively in $(R,+)$.
+\end{remark*}
+
+\begin{proposition}[Multiplication by Additive Inverse]
+\label{prop:ring-mult-neg}
+In a ring,
+\[
+a\cdot(-b)=-(a\cdot b)=(-a)\cdot b.
+\]
+In a ring, $(-1)\cdot a=-a$.
+\hyperref[prf:ring-mult-neg]{Go to proof.}
+\end{proposition}
+
+\begin{proposition}[Cancellation in Integral Domains]
+\label{prop:domain-cancellation}
+In an integral domain, if $a\neq 0$ and $ab=ac$, then $b=c$.
+\hyperref[prf:domain-cancellation]{Go to proof.}
+\end{proposition}
+
+\begin{proposition}[Every Field is an Integral Domain]
+\label{prop:field-is-domain}
+Every field is an integral domain.
+\hyperref[prf:field-is-domain]{Go to proof.}
+\end{proposition}
+
+\begin{proposition}[Finite Integral Domain is a Field]
+\label{prop:finite-domain-is-field}
+Every finite integral domain is a field.
+\hyperref[prf:finite-domain-is-field]{Go to proof.}
+\end{proposition}
+
+\subsection{The Structural Lattice}
+\label{sec:structural-lattice}
+
+\begin{center}
+\small
+\begin{tabular}{c}
+\hyperref[def:magma]{Magma}\\
+$\Downarrow$ add associativity\\
+\hyperref[def:semigroup]{Semigroup}\\
+$\Downarrow$ add identity\\
+\hyperref[def:monoid]{Monoid}\\
+$\Downarrow$ add inverses\\
+\hyperref[def:group]{Group}\\
+$\Downarrow$ add commutativity\\
+\hyperref[def:abelian-group]{Abelian Group}
+\end{tabular}
+\qquad
+\begin{tabular}{c}
+\hyperref[def:rng]{Rng}\\
+$\Downarrow$ add unity\\
+\hyperref[def:ring]{Ring}\\
+$\Downarrow$ add multiplicative commutativity\\
+\hyperref[def:commutative-ring]{Commutative Ring}\\
+$\Downarrow$ add $0\neq 1$ and no zero divisors\\
+\hyperref[def:integral-domain]{Integral Domain}\\
+$\Downarrow$ finite, or add inverses directly\\
+\hyperref[def:field]{Field}
+\end{tabular}
+\end{center}
+
+\begin{remark*}[Proof-stub inventory]
+The one-proof-per-file pipeline for this chapter contains:
+identity-collapse, absorbing-unique, inverse-collapse, units-form-group,
+general-associativity, invertible-implies-cancellable, group-identity-unique,
+group-inverse-unique, group-cancellation, socks-shoes, ring-mult-zero,
+ring-mult-neg, domain-cancellation, field-is-domain, and
+finite-domain-is-field.
+\end{remark*}
